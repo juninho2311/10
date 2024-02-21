@@ -1,0 +1,54 @@
+
+{
+ public class Quartos
+{
+	public string Nome;
+	public string Email;
+    public int NumQuarto;
+
+    public override string ToString()
+    {
+        return NumQuarto + ": " + Nome + ", " + Email;
+    }
+}
+}
+
+
+
+int num_quarto;         
+Quartos[] quartos = new Quartos[9];
+Quartos[] copia = new Quartos[quartos.Length];
+
+
+Console.WriteLine("Boas vindas ao nosso hotel!");
+Console.WriteLine("Escolha 1 para alugar quartos e 2 para verificar os quartos ocupados");
+int escolha = int.Parse(Console.ReadLine());
+switch (escolha){
+    case 1:
+        Console.WriteLine("Qual quarto você deseja escolher?");
+        num_quarto = int.Parse(Console.ReadLine());
+        if(quartos[num_quarto] == null){
+
+            quartos[num_quarto] = new Quartos();
+            Console.WriteLine("Insira seu nome : ");
+            quartos[num_quarto].Nome = Console.ReadLine();
+            Console.WriteLine("Insira seu email : ");
+            quartos[num_quarto].Email = Console.ReadLine();
+            quartos[num_quarto].NumQuarto = num_quarto;
+            break;
+        }
+        else
+        {
+        Console.WriteLine("Insira um quarto vazio!");
+        }
+        Console.ReadKey();
+        Console.Clear();
+    break;
+                  
+    case 2:
+        quartos.ToList().ForEach(Console.WriteLine);
+
+        Console.ReadKey();
+        Console.Clear();
+    break;
+}
